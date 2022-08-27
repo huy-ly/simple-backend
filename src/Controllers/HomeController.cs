@@ -15,7 +15,30 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        var posts = new List<BlogPostModel>();
+
+        posts.Add(new BlogPostModel
+        {
+            Title = "npm audit: Broken by Design",
+            CreatedDate = new DateTime(2021, 7, 7),
+            Description = "Found 99 vulnerabilities (84 moderately irrelevant, 15 highly irrelevant)"
+        });
+
+        posts.Add(new BlogPostModel
+        {
+            Title = "Before You memo()",
+            CreatedDate = new DateTime(2021, 2, 23),
+            Description = "Rendering optimizations that come naturally."
+        });
+
+        posts.Add(new BlogPostModel
+        {
+            Title = "The WET Codebase",
+            CreatedDate = new DateTime(2020, 7, 13),
+            Description = "Come waste your time with me."
+        });
+
+        return View(posts);
     }
 
     public IActionResult Harry()
